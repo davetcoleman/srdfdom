@@ -138,6 +138,10 @@ public:
     
     /// The name of the group that includes the joints & links this end effector consists of
     std::string component_group_;
+
+    /// Flag if this EE represents a foot, and if so, which one
+    /// Options: NONE, LEFT, RIGHT, BACK_LEFT, BACK_RIGHT, FRONT_LEFT, FRONT_RIGHT
+    std::string foot_type_;
   };
   
   /// A named state for a particular group

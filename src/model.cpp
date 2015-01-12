@@ -360,6 +360,7 @@ void srdf::Model::loadEndEffectors(const urdf::ModelInterface &urdf_model, TiXml
     const char *gname = eef_xml->Attribute("group");
     const char *parent = eef_xml->Attribute("parent_link");
     const char *parent_group = eef_xml->Attribute("parent_group");
+    const char *foot_type = eef_xml->Attribute("foot_type");
     if (!ename)
     {
       logError("Name of end effector is not specified");
@@ -399,6 +400,10 @@ void srdf::Model::loadEndEffectors(const urdf::ModelInterface &urdf_model, TiXml
     if (parent_group)
     {
       e.parent_group_ = std::string(parent_group); boost::trim(e.parent_group_);
+    }
+    if (foot_type)
+    {
+      e.foot_type_ = std::string(foot_type); boost::trim(e.foot_type_);
     }
     end_effectors_.push_back(e);
   }
